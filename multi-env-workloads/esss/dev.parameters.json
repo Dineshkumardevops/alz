@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "envName": { "value": "dev" },
+    "envShort": { "value": "dev" },
+    "location": { "value": "Australia Southeast" },
+    "targetRGName": { "value": "esss-dev-rg" },
+    "vnetAddressPrefix": { "value": "10.0.0.0/16" },
+    "subnets": {
+      "value": [
+        { "name": "app-subnet", "prefix": "10.0.1.0/24" }
+      ]
+    },
+    "vmReplications": {
+      "value": [
+        {
+          "vmName": "acurity-dev-01",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        },
+        {
+          "vmName": "cm-dev-01",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        }
+      ]
+    }
+  }
+}

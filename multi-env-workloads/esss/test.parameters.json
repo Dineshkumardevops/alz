@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "envName": {
+      "value": "test"
+    },
+    "envShort": {
+      "value": "tst"
+    },
+    "location": {
+      "value": "Australia Southeast"
+    },
+    "targetRGName": {
+      "value": "esss-tst-rg"
+    },
+    "vnetAddressPrefix": {
+      "value": "10.1.0.0/16"
+    },
+    "subnets": {
+      "value": [
+        {
+          "name": "app-subnet",
+          "prefix": "10.1.1.0/24"
+        }
+      ]
+    },
+    "vmReplications": {
+      "value": [
+        {
+          "vmName": "acurity-tst-01",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        },
+        {
+          "vmName": "acurity-tst-02",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        },
+        {
+          "vmName": "acurity-tst-03",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        },
+        {
+          "vmName": "cm-tst-01",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        },
+        {
+          "vmName": "cm-tst-02",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        },
+        {
+          "vmName": "cm-tst-03",
+          "vmSize": "Standard_B4ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "data1", "sizeGB": 200 },
+            { "name": "data2", "sizeGB": 500 }
+          ]
+        },
+        {
+          "vmName": "sql-tst-01",
+          "vmSize": "Standard_B8ms",
+          "osType": "Windows",
+          "osDiskSizeGB": 100,
+          "dataDisks": [
+            { "name": "sqldata", "sizeGB": 1024 },
+            { "name": "sqllogs", "sizeGB": 300 }
+          ]
+        }
+      ]
+    }
+  }
+}
