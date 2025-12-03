@@ -6,7 +6,6 @@ It deploys all required Azure landing-zone components for **on-prem → Azure mi
 * **DEV**
 * **TEST**
 * **UAT**
-* **(Optional) PROD**
 
 Each environment is deployed using the **same reusable Bicep modules** with separate parameter files.
 
