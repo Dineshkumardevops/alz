@@ -91,6 +91,9 @@
           ]
         }
       ]
+    },
+    "cacheStorageAccountId": {
+      "value": ""
     }
   }
 }

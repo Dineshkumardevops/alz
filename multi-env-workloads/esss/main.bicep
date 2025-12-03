@@ -19,6 +19,9 @@ param subnets array
 @description('VM replication configuration list')
 param vmReplications array
 
+@description('Optional: Cache storage account resourceId used by ASR for replication staging. Leave empty to use ASR internal handling.')
+param cacheStorageAccountId string = ''
+
 // Common naming prefix for resources
 var namePrefix = 'esss-${envShort}'
 
@@ -62,6 +65,7 @@ module recovery './recovery/main.bicep' = {
     targetRGId: targetRG.id
     targetSubnetId: networking.outputs.subnetIds[0]
     vmReplications: vmReplications
+    cacheStorageAccountId: cacheStorageAccountId
   }
 }
 

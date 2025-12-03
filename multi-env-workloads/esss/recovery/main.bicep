@@ -15,32 +15,7 @@ param targetSubnetId string
 
 @description('Array of VM replication configs')
 param vmReplications array
-/*
-Example:
 
-[
-  {
-    vmName: 'acurity-dev-01'
-    vmSize: 'Standard_B4ms'
-    osType: 'Windows'
-    osDiskSizeGB: 100
-    dataDisks: [
-      { name: 'data1', sizeGB: 200 }
-      { name: 'data2', sizeGB: 500 }
-    ]
-  },
-  {
-    vmName: 'cm-dev-01'
-    vmSize: 'Standard_B4ms'
-    osType: 'Windows'
-    osDiskSizeGB: 100
-    dataDisks: [
-      { name: 'data1', sizeGB: 200 }
-      { name: 'data2', sizeGB: 500 }
-    ]
-  }
-]
-*/
 
 @description('Recovery Point Retention in hours')
 param recoveryPointRetentionHours int = 24
@@ -53,6 +28,9 @@ param replicationFrequencyInSeconds int = 300
 
 @description('Storage account type used for replication (Standard_LRS, Premium_LRS, etc.)')
 param storageAccountType string = 'Standard_LRS'
+
+@description(' Cache storage account resourceId used for replication staging')
+param cacheStorageAccountId string = ''
 
 
 // ---------- Recovery Services Vault ----------
@@ -88,6 +66,7 @@ module replicationModule './asrReplication.bicep' = {
     replicationPolicyId: policyModule.outputs.asrPolicyId
     targetRGId: targetRGId
     targetSubnetId: targetSubnetId
+    cacheStorageAccountId: cacheStorageAccountId
     vmReplications: vmReplications
     // fabricName and protectionContainerName use defaults inside asrReplication.bicep
   }

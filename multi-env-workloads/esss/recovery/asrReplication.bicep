@@ -16,22 +16,11 @@ param fabricName string = 'Azure'
 @description('ASR Protection Container name')
 param protectionContainerName string = 'protectionContainer1'
 
+@description('Optional: Cache storage account resourceId used for replication staging (matches the portal UI)')
+param cacheStorageAccountId string = ''
+
 @description('Array of VM replication configs')
 param vmReplications array
-/*
-Example of vmReplications element:
-
-{
-  vmName: 'acurity-tst-01'
-  vmSize: 'Standard_B4ms'
-  osType: 'Windows'
-  osDiskSizeGB: 100
-  dataDisks: [
-    { name: 'data1', sizeGB: 200 }
-    { name: 'data2', sizeGB: 500 }
-  ]
-}
-*/
 
 
 // ---------- Existing ASR Hierarchy ----------
@@ -67,6 +56,10 @@ resource protectedVMs 'Microsoft.RecoveryServices/vaults/replicationFabrics/repl
         targetResourceGroupId: targetRGId
         targetSubnetId: targetSubnetId
 
+      
+        // ASR's internal handling / managed cache.
+        targetStorageAccountId: cacheStorageAccountId
+
         // Disks: OS + Data
         disks: [
           {
@@ -87,3 +80,4 @@ resource protectedVMs 'Microsoft.RecoveryServices/vaults/replicationFabrics/repl
 ]
 
 output protectedVMIds array = [for p in protectedVMs: p.id]
+output protectedVMNames array = [for p in protectedVMs: p.name]
