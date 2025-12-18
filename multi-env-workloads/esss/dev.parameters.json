@@ -4,7 +4,7 @@
   "parameters": {
     "envName": { "value": "dev" },
     "envShort": { "value": "dev" },
-    "location": { "value": "Australia Southeast" },
+    "location": { "value": "Australia East" },
     "targetRGName": { "value": "esss-dev-rg" },
     "vnetAddressPrefix": { "value": "10.0.0.0/16" },
     "subnets": {

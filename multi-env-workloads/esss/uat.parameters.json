@@ -9,7 +9,7 @@
       "value": "uat"
     },
     "location": {
-      "value": "Australia Southeast"
+      "value": "Australia East"
     },
     "targetRGName": {
       "value": "esss-uat-rg"
@@ -43,51 +43,6 @@
           "osDiskSizeGB": 100,
           "dataDisks": [
             { "name": "data1", "sizeGB": 200 }
-          ]
-        },
-        {
-          "vmName": "ao1-uat-01",
-          "vmSize": "Standard_D8s_v5",
-          "osType": "Windows",
-          "osDiskSizeGB": 100,
-          "dataDisks": [
-            { "name": "data1", "sizeGB": 200 }
-          ]
-        },
-        {
-          "vmName": "ao5-uat-01",
-          "vmSize": "Standard_D8s_v5",
-          "osType": "Windows",
-          "osDiskSizeGB": 100,
-          "dataDisks": [
-            { "name": "data1", "sizeGB": 200 }
-          ]
-        },
-        {
-          "vmName": "ao5-uat-02",
-          "vmSize": "Standard_D8s_v5",
-          "osType": "Windows",
-          "osDiskSizeGB": 100,
-          "dataDisks": [
-            { "name": "data1", "sizeGB": 200 }
-          ]
-        },
-        {
-          "vmName": "ao6u-uat-01",
-          "vmSize": "Standard_D8s_v5",
-          "osType": "Windows",
-          "osDiskSizeGB": 100,
-          "dataDisks": [
-            { "name": "data1", "sizeGB": 200 }
-          ]
-        },
-        {
-          "vmName": "sql1-uat-01",
-          "vmSize": "Standard_D8s_v5",
-          "osType": "Windows",
-          "osDiskSizeGB": 250,
-          "dataDisks": [
-            { "name": "sqllogs", "sizeGB": 300 }
           ]
         }
       ]
